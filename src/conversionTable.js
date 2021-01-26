@@ -152,16 +152,14 @@ export const convert = (from, to, amount) => {
     } 
     if(conversionTable[key] === 'N') {
         return amount;
-    } 
-    if(conversionTable[key] === 'USD' || conversionTable[key] === 'EUR') {
-        amount = convert(from, conversionTable[key], amount)
-        key = conversionTable[key] + to;
-    } 
-    if(conversionTable[key] === 'INV') {
+    } else if(conversionTable[key] === 'INV') {
         const revKey = to+from;
         return (1/conversionRates[revKey])*amount;
-    }
-    if(conversionTable[key] === 'D') {
+    } else if(conversionTable[key] === 'D') {
         return conversionRates[key]*amount;
-    }
+    } else if(conversionTable[key] === 'USD' || conversionTable[key] === 'EUR') {
+        amount = convert(from, conversionTable[key], amount)
+    } 
+    return convert(conversionTable[key] , to, amount)
+    
 }
