@@ -1,4 +1,4 @@
-const table = {
+const conversionTable = {
     AUDAUD: 'N',
     AUDCAD: 'USD',
     AUDCNY: 'USD',
@@ -130,4 +130,38 @@ const table = {
     USDNOK : 'EUR',
     USDNZD : 'INV',
     USDUSD : 'N'
+}
+
+const conversionRates = {
+    AUDUSD:0.8371,
+    CADUSD:0.8711,
+    USDCNY:6.1715,
+    EURUSD:1.2315,
+    GBPUSD:1.5683,
+    NZDUSD:0.7750,
+    USDJPY:119.95,
+    EURCZK:27.6028,
+    EURDKK:7.4405,
+    EURNOK:8.6651
+}
+
+export const convert = (from, to, amount) => {
+    let key=from+to;
+    if(!conversionTable[key]) {
+        throw new Error('Invalid conversion');
+    } 
+    if(conversionTable[key] === 'N') {
+        return amount;
+    } 
+    if(conversionTable[key] === 'USD' || conversionTable[key] === 'EUR') {
+        amount = convert(from, conversionTable[key], amount)
+        key = conversionTable[key] + to;
+    } 
+    if(conversionTable[key] === 'INV') {
+        const revKey = to+from;
+        return (1/conversionRates[revKey])*amount;
+    }
+    if(conversionTable[key] === 'D') {
+        return conversionRates[key]*amount;
+    }
 }

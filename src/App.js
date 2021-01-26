@@ -1,36 +1,49 @@
 import { useState } from 'react'
-import Currency from './Currency'
 import InputText from './InputText'
 import Result from './Result'
+import {convert} from './conversionTable'
 
 function App() {
-  const [fromCurr, setFromCurr] = useState('AUD');
-  const [toCurr, setToCurr] = useState('AUD');
-  const [amount, setAmount] = useState('');
+  const [fromCurr, setFromCurr] = useState('');
+  const [toCurr, setToCurr] = useState('');
+  const [resultLabel, setResultLabel] = useState();
+  const [amount, setAmount] = useState();
+  const [result, setResult] = useState();
+  const [error, setError] = useState();
   const handleCurrencyChange = (currType, e) => {
+    const value = e.target.value;
     if(currType === 'FROM') {
-      setFromCurr(e.target.value);
+      setFromCurr(value.toUpperCase());
     } else {
-      setToCurr(e.target.value);
+      setToCurr(value.toUpperCase());
     }
   }
   const handleConversion = () => {
-    console.log(amount, fromCurr, toCurr);
+    setError();
+    setResultLabel(`${fromCurr} to ${toCurr}`)
+    try {
+      const result = convert(fromCurr, toCurr, amount);
+      const resRoundedTo2Dec = Math.round((result + Number.EPSILON) * 100) / 100;
+      setResult(resRoundedTo2Dec);
+    } catch (err) {
+      setError(`Unable to find rate for ${fromCurr}/${toCurr}`)
+    }
+    
   }
   return (
     <div className="container">
       <h1>Currency Converter</h1>
       <div className="row">
         <div className="col-sm-4">
-          <form className="form-floating">     
-            <Currency id={'from'} name={'from'} label={'From Currency'} handleChange={handleCurrencyChange.bind(this, 'FROM')}/>
-            <InputText label='Amount' name='amount' id='amount' onChange={setAmount}/>
-            <Currency id='to' name='to' label='To Currency' handleChange={handleCurrencyChange.bind(this, 'TO')}/>
+          <form className="form-floating">  
+            <InputText type='text' label='From Currency' name='from' id='from' onChange={handleCurrencyChange.bind(this, 'FROM')}/>
+            <InputText type='number' label='Amount' name='amount' id='amount' onChange={(e)=>setAmount(+e.target.value)}/>
+            <InputText type='text' label='To Currency' name='to' id='to' onChange={handleCurrencyChange.bind(this, 'TO')}/>
             <button type="button" className="btn btn-success" onClick={handleConversion}>Convert</button>
           </form>
         </div>
         <div className="col-sm-4">
-           <Result label={`${fromCurr} to ${toCurr}`} result={'abc'}/> 
+           <Result label={resultLabel} error={error} result={result}/> 
         </div>
       </div>
     </div>
