@@ -9,10 +9,10 @@ function App() {
   const [result, setResult] = useState();
   const [error, setError] = useState();
 
-  const handleConversion = ({fromCurr, toCurr, amount}) => {
+  const handleConversion = ({ fromCurr, toCurr, amount }) => {
     setError();
     const fromCurrency = fromCurr.toUpperCase();
-    const toCurrency = toCurr.toUpperCase();    
+    const toCurrency = toCurr.toUpperCase();
     setResultLabel(`${fromCurrency} to ${toCurrency}`)
     try {
       const result = convert(fromCurrency, toCurrency, amount);
@@ -41,11 +41,12 @@ function App() {
         handleConversion(fields);
       }}
       render={({ errors, touched }) => (
-        <Form>
-          <div className="container">
-            <h1>Currency Converter</h1>
+        <div className="container">
+          <h1 className="header">Currency Converter</h1>
+         
+            <Form>
             <div className="row">
-              <div className="col-sm-4">
+              <div className="col-sm-5">
                 <div className="form-group">
                   <label htmlFor={'fromCurr'} className="form-label">From Currency</label>
                   <Field type='text'
@@ -70,14 +71,19 @@ function App() {
                   />
                   <ErrorMessage name='toCurr' component="div" className="invalid-feedback" />
                 </div>
-                <button type="submit" className="btn btn-success">Convert</button>
+                <div className="btn-group">
+                  <span>
+                  <button type="submit" className="btn btn-success">Convert</button></span>
+                  <span><button type="reset" className="btn btn-secondary">Reset</button></span>
+                </div>
               </div>
-              <div className="col-sm-4">
+              <div className="col-sm-6">
                 <Result label={resultLabel} error={error} result={result} />
               </div>
-            </div>
-          </div>
-        </Form>
+              </div>
+            </Form>
+         
+        </div>
       )}
     />
   );
