@@ -4,9 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## External Libraries used
 
-bootstrap: For styling web components
-jest: Test runner for executing unit tests
-Testing library: To interact with react component in unit tests.
+**bootstrap**: For styling web components \
+**jest**: Test runner for executing unit tests \
+**Testing library**: To interact with react component in unit tests.
 
 ## Available Scripts
 
