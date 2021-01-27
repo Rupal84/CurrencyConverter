@@ -2,7 +2,7 @@ import React from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Result from './Result'
-import { convert } from '../utils/conversionTable'
+import { convert, decimalPlaces } from '../utils/conversionTable'
 
 const handleConversion = (values, actions) => {
   const { fromCurr, toCurr, amount } = values
@@ -11,7 +11,7 @@ const handleConversion = (values, actions) => {
   const toCurrency = toCurr.toUpperCase();
   try {
     const result = convert(fromCurrency, toCurrency, amount);
-    const precision = toCurrency === 'JPY' ? 0 : 2;
+    const precision = decimalPlaces[toCurrency];
     setStatus({
       result: result.toFixed(precision),
       resultLabel: `${fromCurrency} to ${toCurrency}`
