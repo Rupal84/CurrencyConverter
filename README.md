@@ -6,7 +6,7 @@
    
    This application can perform direct, inverted and cross-over currency conversions where direct conversion is not possible. These types of conversions use `USD/EUR` as intermediate currencies. 
    
-  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and has `100%` unit test coverage. 
+  This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) and has nearly `100%` unit test coverage. 
 
 ## External Libraries used
 
@@ -32,6 +32,6 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Exuecutes unit tests with jest runner and generate coverage report in different formats including html. 
 
-### `npm build`
+### `npm run build`
 
 Builds the app for production to the `build` folder.
