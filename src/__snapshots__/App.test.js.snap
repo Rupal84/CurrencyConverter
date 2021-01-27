@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders component correctly 1`] = `
+<div>
+  <div
+    class="container"
+  >
+    <h1
+      class="header"
+    >
+      Currency Converter
+    </h1>
+    <form
+      action="#"
+    >
+      <div
+        class="row"
+      >
+        <div
+          class="col-sm-5"
+        >
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="fromCurr"
+            >
+              From Currency
+            </label>
+            <input
+              class="form-control"
+              name="fromCurr"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="amount"
+            >
+              Amount
+            </label>
+            <input
+              class="form-control"
+              name="amount"
+              type="number"
+              value=""
+            />
+          </div>
+          <div
+            class="form-group"
+          >
+            <label
+              class="form-label"
+              for="toCurr"
+            >
+              To Currency
+            </label>
+            <input
+              class="form-control"
+              name="toCurr"
+              type="text"
+              value=""
+            />
+          </div>
+          <div
+            class="btn-group"
+          >
+            <span>
+              <button
+                class="btn btn-success"
+                type="submit"
+              >
+                Convert
+              </button>
+            </span>
+            <span>
+              <button
+                class="btn btn-secondary"
+                type="reset"
+              >
+                Reset
+              </button>
+            </span>
+          </div>
+        </div>
+        <div
+          class="col-sm-6"
+        />
+      </div>
+    </form>
+  </div>
+</div>
+`;

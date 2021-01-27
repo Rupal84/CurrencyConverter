@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import Result from './Result'
@@ -23,26 +23,27 @@ function App() {
     }
   }
   return (
-    <Formik
-      initialValues={{
-        fromCurr: '',
-        amount: '',
-        toCurr: ''
-      }}
-      validationSchema={Yup.object().shape({
-        fromCurr: Yup.string()
-          .required('From Currency is required'),
-        amount: Yup.number()
-          .required('Amount is required'),
-        toCurr: Yup.string()
-          .required('Email is required')
-      })}
-      onSubmit={fields => {
-        handleConversion(fields);
-      }}
-      render={({ errors, touched }) => (
-        <div className="container">
-          <h1 className="header">Currency Converter</h1>
+    <div className="container">
+      <h1 className="header">Currency Converter</h1>
+      <Formik
+        initialValues={{
+          fromCurr: '',
+          amount: '',
+          toCurr: ''
+        }}
+        validationSchema={Yup.object().shape({
+          fromCurr: Yup.string()
+            .required('From Currency is required'),
+          amount: Yup.number()
+            .required('Amount is required'),
+          toCurr: Yup.string()
+            .required('Email is required')
+        })}
+        onSubmit={fields => {
+          handleConversion(fields);
+        }}
+      >
+        {({ errors, touched }) => (
           <Form>
             <div className="row">
               <div className="col-sm-5">
@@ -81,9 +82,8 @@ function App() {
               </div>
             </div>
           </Form>
-        </div>
-      )}
-    />
+        )}
+      </Formik></div>
   );
 }
 
