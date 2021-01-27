@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders component correctly 1`] = `
+exports[`CurrencyCalculator component renders correctly 1`] = `
 <div>
   <div
     class="container"
@@ -30,6 +30,7 @@ exports[`renders component correctly 1`] = `
             </label>
             <input
               class="form-control"
+              data-testid="fromCurr"
               name="fromCurr"
               type="text"
               value=""
@@ -46,6 +47,7 @@ exports[`renders component correctly 1`] = `
             </label>
             <input
               class="form-control"
+              data-testid="amount"
               name="amount"
               type="number"
               value=""
@@ -62,6 +64,7 @@ exports[`renders component correctly 1`] = `
             </label>
             <input
               class="form-control"
+              data-testid="toCurr"
               name="toCurr"
               type="text"
               value=""
@@ -73,6 +76,7 @@ exports[`renders component correctly 1`] = `
             <span>
               <button
                 class="btn btn-success"
+                data-testid="submit"
                 type="submit"
               >
                 Convert

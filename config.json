@@ -1,5 +1,15 @@
 {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+        "src/components/*.js", "src/utils/*.js"
+      ],
+      "coverageThreshold": {
+        "global": {
+          "lines": 90,
+          "statements": 90
+        }
+      },
     "transform": {
         "^.+\\.(js|jsx)$": "babel-jest"
-      }
+    }
 }
