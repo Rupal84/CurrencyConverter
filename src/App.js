@@ -43,8 +43,7 @@ function App() {
       render={({ errors, touched }) => (
         <div className="container">
           <h1 className="header">Currency Converter</h1>
-         
-            <Form>
+          <Form>
             <div className="row">
               <div className="col-sm-5">
                 <div className="form-group">
@@ -73,16 +72,15 @@ function App() {
                 </div>
                 <div className="btn-group">
                   <span>
-                  <button type="submit" className="btn btn-success">Convert</button></span>
+                    <button type="submit" className="btn btn-success">Convert</button></span>
                   <span><button type="reset" className="btn btn-secondary">Reset</button></span>
                 </div>
               </div>
               <div className="col-sm-6">
                 <Result label={resultLabel} error={error} result={result} />
               </div>
-              </div>
-            </Form>
-         
+            </div>
+          </Form>
         </div>
       )}
     />
