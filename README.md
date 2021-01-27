@@ -17,21 +17,21 @@
 
 ## Setup instructions
 1. Clone this repo at desired location on your machine. (or download as zip file and extract)
-2. Run `yarn` in project root directory
+2. Run `npm install` in project root directory
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `yarn start`
+### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-### `yarn test`
+### `npm test`
 
 Exuecutes unit tests with jest runner and generate coverage report in different formats including html. 
 
-### `yarn build`
+### `npm build`
 
 Builds the app for production to the `build` folder.
