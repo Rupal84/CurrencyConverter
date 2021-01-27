@@ -15,6 +15,10 @@
 - **Testing library**: To interact with react component in unit tests.
 - **Formik**: Form validations
 
+## Setup instructions
+1. Clone this repo at desired location on your machine. (or download as zip file and extract)
+2. Run `yarn` in project root directory
+
 ## Available Scripts
 
 In the project directory, you can run:
