@@ -37,7 +37,7 @@ function CurrencyCalculator() {
           amount: Yup.number()
             .required('Amount is required'),
           toCurr: Yup.string()
-            .required('Email is required')
+            .required('To Currency is required')
         })}
         onSubmit={handleConversion}
       >
